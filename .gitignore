@@ -4,5 +4,8 @@ __pycache__/
 # 忽略 Jupyter Notebook 检查点
 .ipynb_checkpoints/
 
+# 忽略 .ipynb
+.ipynb
+
 # 忽略环境配置文件
 .env
