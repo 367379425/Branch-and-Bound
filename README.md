@@ -15,7 +15,7 @@ Self-learning: Hand code branch and bound method for better understanding of its
 # To Do List 😶‍🌫️
 
 * Provide a **schematic diagram** of my understanding about B&B.
-* Extend my code to be more general. Now my B&B only use linear relaxation and the strategy implemented in my code has limitations. For a instance, there are many other methods for models relaxation and various branch rules.
+* Extend my code to make it more general. Now my B&B only uses linear relaxation, and the strategy implemented in my code has limitations. For instance, there are many other methods for models relaxation and various branch rules.
 * My temporary goal is to replicate the algorithm describe in particular paper my teacher required me to do.🙃
 
 
