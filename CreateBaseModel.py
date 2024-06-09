@@ -16,6 +16,21 @@ All you need to do is to define:
 
 An example that defines model_var and model_CnO is set as default.
 """
+
+def add_var(model):
+    var_index = [
+    f'x_{i}'
+    for i in range(1, 3)
+    ]
+    x_dict = model.addVars(var_index, vtype=grb.GRB.INTEGER, name= var_index)
+    return x_dict
+
+def add_CnO_simple_IP_model_01(model, x_dict):    
+    model.addConstr(2 * x_dict['x_1'] + x_dict['x_2'] <=10, name= 'c1')
+    model.addConstr(3 * x_dict['x_1'] + 6 * x_dict['x_2'] <=40, name='c2')
+    model.setObjective(100 * x_dict['x_1'] + 150 * x_dict['x_2'], grb.GRB.MAXIMIZE)
+    
+    
 def create_model(model_name='Model', model_var=add_var, model_CnO=add_CnO_simple_IP_model_01, save_path=r'.\test_model'):
     created_model = grb.Model(model_name)
     
@@ -30,18 +45,6 @@ def create_model(model_name='Model', model_var=add_var, model_CnO=add_CnO_simple
     save_ModelnSolution(created_model, save_path)
     return created_model
    
-def add_var(model):
-    var_index = [
-    f'x_{i}'
-    for i in range(1, 3)
-    ]
-    x_dict = model.addVars(var_index, vtype=grb.GRB.INTEGER, name= var_index)
-    return x_dict
-
-def add_CnO_simple_IP_model_01(model, x_dict):    
-    model.addConstr(2 * x_dict['x_1'] + x_dict['x_2'] <=10, name= 'c1')
-    model.addConstr(3 * x_dict['x_1'] + 6 * x_dict['x_2'] <=40, name='c2')
-    model.setObjective(100 * x_dict['x_1'] + 150 * x_dict['x_2'], grb.GRB.MAXIMIZE)
 
 def save_ModelnSolution(model, path):
     model.write(os.path.join(path, model.ModelName+'.lp'))
