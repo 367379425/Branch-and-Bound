@@ -7,5 +7,8 @@ __pycache__/
 # 忽略 .ipynb
 # *.ipynb
 
+# Ignore __pycache__ directories
+__pycache__/
+
 # 忽略环境配置文件
 .env
